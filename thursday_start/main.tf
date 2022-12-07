@@ -1,22 +1,3 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 4.0"
-    }
-  }
-}
-
-# Configure the AWS Provider
-provider "aws" {
-  region = "us-east-1"
-}
-
-resource "aws_s3_bucket" "s3bucket" {
-  bucket = "goldbucket12622"
-
-  tags = {
-    Name        = "My bucket"
-    Environment = "Dev"
-  }
+module "s3" {
+  source = "./s3"
 }
